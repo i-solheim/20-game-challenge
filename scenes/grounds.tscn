@@ -15,19 +15,29 @@ script = ExtResource("1_tbi4r")
 [node name="Ground1" type="Area2D" parent="."]
 
 [node name="Sprite2D" type="Sprite2D" parent="Ground1"]
-position = Vector2(168, 664)
+position = Vector2(168, 584)
 texture = ExtResource("2_k0iur")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ground1"]
-position = Vector2(168, 611)
+position = Vector2(168, 531)
 shape = SubResource("RectangleShape2D_lmksl")
+
+[node name="Ground3" type="Area2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Ground3"]
+position = Vector2(504, 584)
+texture = ExtResource("2_k0iur")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground3"]
+position = Vector2(504, 532)
+shape = SubResource("RectangleShape2D_w5yvf")
 
 [node name="Ground2" type="Area2D" parent="."]
 
 [node name="Sprite2D" type="Sprite2D" parent="Ground2"]
-position = Vector2(504, 664)
+position = Vector2(840, 584)
 texture = ExtResource("2_k0iur")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ground2"]
-position = Vector2(504, 612)
+position = Vector2(840, 532)
 shape = SubResource("RectangleShape2D_w5yvf")
