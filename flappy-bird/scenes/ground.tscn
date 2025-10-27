@@ -1,0 +1,37 @@
+[gd_scene load_steps=4 format=3 uid="uid://xhkvqnnysyuf"]
+
+[ext_resource type="Script" uid="uid://b188eci58ixg0" path="res://scenes/ground.gd" id="1_mi8v4"]
+[ext_resource type="Texture2D" uid="uid://bslhoygg83p13" path="res://assets/Game Objects/base.png" id="1_pybca"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mi8v4"]
+size = Vector2(336, 20)
+
+[node name="Ground" type="Node2D"]
+script = ExtResource("1_mi8v4")
+
+[node name="Ground1" type="Area2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Ground1"]
+texture = ExtResource("1_pybca")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground1"]
+position = Vector2(0, -46)
+shape = SubResource("RectangleShape2D_mi8v4")
+
+[node name="Ground2" type="Area2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Ground2"]
+texture = ExtResource("1_pybca")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground2"]
+position = Vector2(0, -46)
+shape = SubResource("RectangleShape2D_mi8v4")
+
+[node name="Ground3" type="Area2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Ground3"]
+texture = ExtResource("1_pybca")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground3"]
+position = Vector2(0, -46)
+shape = SubResource("RectangleShape2D_mi8v4")
