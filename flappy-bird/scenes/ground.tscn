@@ -35,3 +35,7 @@ texture = ExtResource("1_pybca")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ground3"]
 position = Vector2(0, -46)
 shape = SubResource("RectangleShape2D_mi8v4")
+
+[connection signal="body_entered" from="Ground1" to="." method="_on_body_entered"]
+[connection signal="body_entered" from="Ground2" to="." method="_on_body_entered"]
+[connection signal="body_entered" from="Ground3" to="." method="_on_body_entered"]

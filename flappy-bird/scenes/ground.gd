@@ -1,8 +1,6 @@
 extends Node2D
-
-
 class_name Ground
-
+signal hit
 
 @export var speed : int = -150
 
@@ -31,3 +29,7 @@ func _process(delta):
 
 	if ground_3.global_position.x < -ground_3.texture.get_width():
 		ground_3.global_position.x = ground_2.global_position.x + ground_2.texture.get_width()
+
+
+func _on_body_entered(body):
+	hit.emit()
