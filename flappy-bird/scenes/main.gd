@@ -33,6 +33,7 @@ func _input(event):
 				else:
 					if $Bird.flying:
 						$Bird.flap()
+						check_top()
 
 
 func start_game():
@@ -43,9 +44,11 @@ func start_game():
 
 
 func _process(delta):
+	if !game_running:
+		return
 	for pipe in pipes:
 		pipe.position.x -= SCROLL_SPEED * delta
-	
+
 
 func _on_pipe_timer_timeout() -> void:
 	generate_pipes()
@@ -59,5 +62,26 @@ func generate_pipes():
 	add_child(pipe)
 	pipes.append(pipe)
 
+
+func check_top():
+	if $Bird.position.y < 0:
+		$Bird.falling = true
+		stop_game()
+
+
+func stop_game():
+	$PipeTimer.stop()
+	$Bird.flying = false
+	game_running = false
+	game_over = true
+	$Ground.speed = 0
+
+
 func bird_hit():
-	pass
+	$Bird.falling = true
+	stop_game()
+
+
+func _on_ground_hit() -> void:
+	$Bird.falling = false
+	stop_game()
