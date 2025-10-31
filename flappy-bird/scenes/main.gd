@@ -10,6 +10,7 @@ var pipes : Array
 const PIPE_DELAY : int = 1
 const PIPE_RANGE : int = 100
 const SCROLL_SPEED : int = 150
+var score : int = 0
 
 
 func _ready():
@@ -22,6 +23,9 @@ func new_game():
 	game_over = false
 	$Bird.reset()
 	pipes.clear()
+	score = 0
+	$ScoreLabel.text = "SCORE: " + str(score)
+	
 
 
 func _input(event):
@@ -59,6 +63,7 @@ func generate_pipes():
 	pipe.position.x = screen_size.x + PIPE_DELAY
 	pipe.position.y = (screen_size.y - ground_height) / 2 + randi_range(-PIPE_RANGE, PIPE_RANGE)
 	pipe.hit.connect(bird_hit)
+	pipe.score.connect(scored)
 	add_child(pipe)
 	pipes.append(pipe)
 
@@ -85,3 +90,8 @@ func bird_hit():
 func _on_ground_hit() -> void:
 	$Bird.falling = false
 	stop_game()
+
+
+func scored():
+	score += 1
+	$ScoreLabel.text = "SCORE: " + str(score)

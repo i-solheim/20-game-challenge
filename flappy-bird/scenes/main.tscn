@@ -24,5 +24,18 @@ position = Vector2(168, 456)
 [node name="PipeTimer" type="Timer" parent="."]
 wait_time = 1.5
 
+[node name="ScoreLabel" type="Label" parent="."]
+z_index = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 102.0
+offset_top = 16.0
+offset_right = 188.0
+offset_bottom = 44.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 20
+text = "SCORE: 0"
+
 [connection signal="hit" from="Ground" to="." method="_on_ground_hit"]
 [connection signal="timeout" from="PipeTimer" to="." method="_on_pipe_timer_timeout"]
