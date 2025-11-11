@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://dwyxw8rsd0tfv"]
+[gd_scene load_steps=8 format=3 uid="uid://dwyxw8rsd0tfv"]
 
 [ext_resource type="Texture2D" uid="uid://8se46wxibous" path="res://assets/Game Objects/background-day.png" id="1_o5qli"]
 [ext_resource type="Script" uid="uid://d06beq78q8ri6" path="res://scenes/main.gd" id="1_sugp2"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://c65saceykhtdc" path="res://scenes/pipes.tscn" id="2_tbgi4"]
 [ext_resource type="PackedScene" uid="uid://xhkvqnnysyuf" path="res://scenes/ground.tscn" id="4_jyhfs"]
 [ext_resource type="FontFile" uid="uid://jr8iahdi2dmg" path="res://assets/UI/FlappyBird.ttf" id="6_tefeu"]
+[ext_resource type="PackedScene" uid="uid://cncr7rboyy6nw" path="res://scenes/game_over.tscn" id="7_o6xl0"]
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_sugp2")
@@ -39,7 +40,7 @@ theme_override_colors/font_shadow_color = Color(0, 0, 0, 0)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/shadow_offset_x = 100
 theme_override_constants/shadow_offset_y = 100
-theme_override_constants/outline_size = 7
+theme_override_constants/outline_size = 10
 theme_override_constants/shadow_outline_size = 1000
 theme_override_fonts/font = ExtResource("6_tefeu")
 theme_override_font_sizes/font_size = 60
@@ -47,5 +48,8 @@ text = "0"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="GameOver" parent="." instance=ExtResource("7_o6xl0")]
+
 [connection signal="hit" from="Ground" to="." method="_on_ground_hit"]
 [connection signal="timeout" from="PipeTimer" to="." method="_on_pipe_timer_timeout"]
+[connection signal="restart" from="GameOver" to="." method="_on_game_over_restart"]
