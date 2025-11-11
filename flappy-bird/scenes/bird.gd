@@ -6,7 +6,7 @@ const MAX_VELOCITY : int = 600      # Limits the maximum speed of the bird
 const FLAP_SPEED: int = -500        # How much the bird jumps up
 var flying : bool = false           # Flag active while no collision
 var falling : bool = false          # Flag active when bird hits a pipe or the ground
-const START_POS = Vector2(48, 256)  # Start position of the bird on the screen
+const START_POS = Vector2(144, 256)  # Start position of the bird on the screen
 
 
 func _ready():
