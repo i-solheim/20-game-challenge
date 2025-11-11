@@ -24,7 +24,7 @@ func new_game():
 	$Bird.reset()
 	pipes.clear()
 	score = 0
-	$ScoreLabel.text = "SCORE: " + str(score)
+	$ScoreLabel.text = str(score)
 	
 
 
@@ -94,4 +94,4 @@ func _on_ground_hit() -> void:
 
 func scored():
 	score += 1
-	$ScoreLabel.text = "SCORE: " + str(score)
+	$ScoreLabel.text = str(score)
