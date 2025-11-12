@@ -7,6 +7,7 @@ signal hit
 @onready var ground_1 = $Ground1/Sprite2D
 @onready var ground_2 = $Ground2/Sprite2D
 @onready var ground_3 = $Ground3/Sprite2D
+@onready var sfx_hit_ground: AudioStreamPlayer2D = $sfx_hit_ground
 
 
 func _ready():
@@ -33,3 +34,5 @@ func _process(delta):
 
 func _on_body_entered(body):
 	hit.emit()
+	sfx_hit_ground.play()
+	

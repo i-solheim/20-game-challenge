@@ -1,6 +1,9 @@
 extends Node2D
 
 @export var pipe_scene : PackedScene
+@onready var sfx_die: AudioStreamPlayer2D = $sfx_die
+@onready var sfx_hit: AudioStreamPlayer2D = $sfx_hit
+
 
 var game_running : bool
 var game_over : bool
@@ -11,6 +14,7 @@ const PIPE_DELAY : int = 1
 const PIPE_RANGE : int = 100
 const SCROLL_SPEED : int = 150
 var score : int = 0
+var sfx_played := false
 
 
 func _ready():
@@ -49,6 +53,7 @@ func start_game():
 	$Bird.flying = true
 	$Bird.flap()
 	$PipeTimer.start()
+	sfx_played = false
 
 
 func _process(delta):
@@ -85,11 +90,15 @@ func stop_game():
 	game_over = true
 	$Ground.speed = 0
 	$GameOver.show()
+	if not sfx_played:
+		sfx_die.play()
+		sfx_played = true
 
 
 func bird_hit():
 	$Bird.falling = true
 	stop_game()
+
 
 
 func _on_ground_hit() -> void:

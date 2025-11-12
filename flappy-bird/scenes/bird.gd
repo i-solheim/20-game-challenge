@@ -1,5 +1,6 @@
 extends CharacterBody2D
 
+@onready var sfx_flap: AudioStreamPlayer2D = $sfx_flap
 
 const GRAVITY : int = 1000          # How quickly the bird drops
 const MAX_VELOCITY : int = 600      # Limits the maximum speed of the bird
@@ -50,3 +51,4 @@ func _physics_process(delta):
 
 func flap():
 	velocity.y = FLAP_SPEED
+	sfx_flap.play()

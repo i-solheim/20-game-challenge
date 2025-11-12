@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://dilc421qn8oq6"]
+[gd_scene load_steps=8 format=3 uid="uid://dilc421qn8oq6"]
 
 [ext_resource type="Texture2D" uid="uid://bgcvvkwnv0w71" path="res://assets/Game Objects/yellowbird-downflap.png" id="1_hq4t0"]
 [ext_resource type="Script" uid="uid://b7smjgpxm3yqf" path="res://scenes/bird.gd" id="1_twsrt"]
 [ext_resource type="Texture2D" uid="uid://dd3dccy7p46s" path="res://assets/Game Objects/yellowbird-midflap.png" id="2_twsrt"]
 [ext_resource type="Texture2D" uid="uid://5j33lu1is2hb" path="res://assets/Game Objects/yellowbird-upflap.png" id="3_b7mtg"]
+[ext_resource type="AudioStream" uid="uid://c2i25d5emvpkj" path="res://assets/Sound Efects/wing.ogg" id="5_b7mtg"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_bdh3x"]
 animations = [{
@@ -38,3 +39,6 @@ frame_progress = 0.49888587
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 rotation = 1.5707964
 shape = SubResource("CapsuleShape2D_jggmu")
+
+[node name="sfx_flap" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_b7mtg")

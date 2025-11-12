@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://xhkvqnnysyuf"]
+[gd_scene load_steps=5 format=3 uid="uid://xhkvqnnysyuf"]
 
 [ext_resource type="Script" uid="uid://b188eci58ixg0" path="res://scenes/ground.gd" id="1_mi8v4"]
 [ext_resource type="Texture2D" uid="uid://bslhoygg83p13" path="res://assets/Game Objects/base.png" id="1_pybca"]
+[ext_resource type="AudioStream" uid="uid://dsadeaa20pmpa" path="res://assets/Sound Efects/hit.ogg" id="3_lmksl"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mi8v4"]
 size = Vector2(336, 20)
@@ -35,6 +36,9 @@ texture = ExtResource("1_pybca")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ground3"]
 position = Vector2(0, -46)
 shape = SubResource("RectangleShape2D_mi8v4")
+
+[node name="sfx_hit_ground" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_lmksl")
 
 [connection signal="body_entered" from="Ground1" to="." method="_on_body_entered"]
 [connection signal="body_entered" from="Ground2" to="." method="_on_body_entered"]
